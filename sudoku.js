@@ -62,13 +62,22 @@ $("#getHint").click(function(){
 	}
 })
 
-$("#solveBoard").click(function(){
-	$('input').prop('disabled', true)
-	$('input').css('color', 'black');
-	sudokuSolver(startBoard);
+$("#clearBoard").click(function(){
 	for (let i = 0; i < 9; i++) {
 		for (let j = 0; j < 9; j++) {
-			$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(startBoard[i][j]);
+			if (startBoard[i][j] != 0)
+				$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(startBoard[i][j]);
+			else
+				$("#cell-" + ((i * 9) + j)).prop('disabled', false).val('');
+		}
+	}
+});
+
+$("#solveBoard").click(function(){
+	$('input').css('color', 'black');
+	for (let i = 0; i < 9; i++) {
+		for (let j = 0; j < 9; j++) {
+			$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(helpBoard[i][j]);
 		}
 	}
 });
