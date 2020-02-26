@@ -2,10 +2,19 @@ var startBoard;
 var helpBoard;
 var help;
 
+$(document).ready(function() {
+    $("#getHint").prop('disabled', true)
+	$("#checkBoard").prop('disabled', true)
+	$("#solveBoard").prop('disabled', true)
+	$("#clearBoard").prop('disabled', true)
+});
+
 $('#help').change(function () {
-	help = $('#help').is(":checked");
-	if (!help) $('input').css('color', 'black');
-	else $("#checkBoard").trigger("click");
+	if (startBoard) {
+		help = $('#help').is(":checked");
+		if (!help) $('input').css('color', 'black');
+		else $("#checkBoard").trigger("click");
+	}
 });
 
 $("#newBoard").click(function(){
@@ -18,6 +27,9 @@ $("#newBoard").click(function(){
 				$('input').prop('disabled', false).val('')
 				$('input').css('color', 'black');
 				$("#getHint").prop('disabled', false)
+				$("#checkBoard").prop('disabled', false)
+				$("#solveBoard").prop('disabled', false)
+				$("#clearBoard").prop('disabled', false)
 				startBoard = result['board'];
 				helpBoard = startBoard.map(v => [...v])
 				sudokuSolver(helpBoard);
@@ -34,13 +46,15 @@ $("#newBoard").click(function(){
 });
 
 $("#checkBoard").click(function(){
-	var userBoard = getUserBoard();
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			if (startBoard[i][j] == 0 && userBoard[i][j] != '')
-				$("#cell-" + ((i * 9) + j)).css('color', (helpBoard[i][j] != userBoard[i][j]) ? 'red' : 'green');
-			else
-				$("#cell-" + ((i * 9) + j)).css('color', 'black');
+	if (startBoard) {
+		var userBoard = getUserBoard();
+		for (let i = 0; i < 9; i++) {
+			for (let j = 0; j < 9; j++) {
+				if (startBoard[i][j] == 0 && userBoard[i][j] != '')
+					$("#cell-" + ((i * 9) + j)).css('color', (helpBoard[i][j] != userBoard[i][j]) ? 'red' : 'green');
+				else
+					$("#cell-" + ((i * 9) + j)).css('color', 'black');
+			}
 		}
 	}
 });
@@ -48,37 +62,49 @@ $("#checkBoard").click(function(){
 
 
 $("#getHint").click(function(){
-	if (!compareBoards()) {
-		var userBoard = getUserBoard();
-		let ran = Math.floor(Math.random() * 81);
-		while ($("#cell-" + ran).val()) {
-			ran = Math.floor(Math.random() * 81);
-		} 
-		var i = Math.floor(ran / 9);
-		var j = ran - (i * 9);
-		$("#cell-" + ran).prop('disabled', true).val(helpBoard[i][j]);
-	} else {
-		$("#getHint").prop('disabled', true)
+	if (startBoard) {
+		if (!compareBoards()) {
+			var userBoard = getUserBoard();
+			let ran = Math.floor(Math.random() * 81);
+			while ($("#cell-" + ran).val()) {
+				ran = Math.floor(Math.random() * 81);
+			} 
+			var i = Math.floor(ran / 9);
+			var j = ran - (i * 9);
+			$("#cell-" + ran).prop('disabled', true).val(helpBoard[i][j]);
+		} else {
+			$("#getHint").prop('disabled', true)
+		}
 	}
 })
 
 $("#clearBoard").click(function(){
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			if (startBoard[i][j] != 0)
-				$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(startBoard[i][j]);
-			else
-				$("#cell-" + ((i * 9) + j)).prop('disabled', false).val('');
+	if (startBoard) {
+		for (let i = 0; i < 9; i++) {
+			for (let j = 0; j < 9; j++) {
+				if (startBoard[i][j] != 0)
+					$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(startBoard[i][j]);
+				else
+					$("#cell-" + ((i * 9) + j)).prop('disabled', false).val('');
+			}
 		}
+		$("#getHint").prop('disabled', false)
+		$("#checkBoard").prop('disabled', false)
+		$("#solveBoard").prop('disabled', false)
 	}
 });
 
 $("#solveBoard").click(function(){
-	$('input').css('color', 'black');
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(helpBoard[i][j]);
+	if (startBoard) {
+		$('input').css('color', 'black');
+		for (let i = 0; i < 9; i++) {
+			for (let j = 0; j < 9; j++) {
+				$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(helpBoard[i][j]);
+			}
 		}
+		$("#getHint").prop('disabled', true)
+		$("#checkBoard").prop('disabled', true)
+		$("#solveBoard").prop('disabled', true)
 	}
 });
 
@@ -113,11 +139,13 @@ function getUserBoard() {
 }
 
 function checkInput(num) {
-	var c = parseInt($("#cell-" + num).val());
-	var i = Math.floor(num / 9);
-	var j = num - (i * 9);
-	$("#cell-" + num).css('color', (!help) ? 'black' : (helpBoard[i][j] != c && help) ? 'red' : 'green');
-	return (helpBoard[i][j] != c) ? false : true
+	if (startBoard) {
+		var c = parseInt($("#cell-" + num).val());
+		var i = Math.floor(num / 9);
+		var j = num - (i * 9);
+		$("#cell-" + num).css('color', (!help) ? 'black' : (helpBoard[i][j] != c && help) ? 'red' : 'green');
+		return (helpBoard[i][j] != c) ? false : true
+	}
 }
 
 function compareBoards() {

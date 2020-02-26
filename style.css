@@ -4,6 +4,7 @@ html, body {
 
 .container {
 	width: 448px;
+	padding: 0;
 }
 
 .form-group {
