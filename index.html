@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Sudoku</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-		<link rel="stylesheet" href="style.css">
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		/>
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"
+		></script>
+		<title>Document</title>
 	</head>
 	<body>
 		<div class="container text-center">
@@ -24,122 +44,699 @@
 			</div>
 			<table id="grid" cellspacing="0px" cellpadding="0px">
 				<tr>
-					<td><input id="cell-0"  type="text" maxlength="1" oninput="checkInput(0)"></td>
-					<td><input id="cell-1"  type="text" maxlength="1" oninput="checkInput(1)"></td>
-					<td><input id="cell-2"  type="text" maxlength="1" oninput="checkInput(2)"></td>
-					<td><input id="cell-3"  type="text" maxlength="1" oninput="checkInput(3)"></td>
-					<td><input id="cell-4"  type="text" maxlength="1" oninput="checkInput(4)"></td>
-					<td><input id="cell-5"  type="text" maxlength="1" oninput="checkInput(5)"></td>
-					<td><input id="cell-6"  type="text" maxlength="1" oninput="checkInput(6)"></td>
-					<td><input id="cell-7"  type="text" maxlength="1" oninput="checkInput(7)"></td>
-					<td><input id="cell-8"  type="text" maxlength="1" oninput="checkInput(8)"></td>
+					<td>
+						<input
+							id="cell-0"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(0)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-1"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(1)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-2"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(2)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-3"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(3)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-4"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(4)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-5"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(5)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-6"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(6)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-7"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(7)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-8"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(8)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-9"  type="text" maxlength="1" oninput="checkInput(9)"></td>
-					<td><input id="cell-10" type="text" maxlength="1" oninput="checkInput(10)"></td>
-					<td><input id="cell-11" type="text" maxlength="1" oninput="checkInput(11)"></td>
-					<td><input id="cell-12" type="text" maxlength="1" oninput="checkInput(12)"></td>
-					<td><input id="cell-13" type="text" maxlength="1" oninput="checkInput(13)"></td>
-					<td><input id="cell-14" type="text" maxlength="1" oninput="checkInput(14)"></td>
-					<td><input id="cell-15" type="text" maxlength="1" oninput="checkInput(15)"></td>
-					<td><input id="cell-16" type="text" maxlength="1" oninput="checkInput(16)"></td>
-					<td><input id="cell-17" type="text" maxlength="1" oninput="checkInput(17)"></td>
+					<td>
+						<input
+							id="cell-9"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(9)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-10"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(10)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-11"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(11)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-12"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(12)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-13"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(13)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-14"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(14)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-15"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(15)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-16"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(16)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-17"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(17)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-18" type="text" maxlength="1" oninput="checkInput(18)"></td>
-					<td><input id="cell-19" type="text" maxlength="1" oninput="checkInput(19)"></td>
-					<td><input id="cell-20" type="text" maxlength="1" oninput="checkInput(20)"></td>
-					<td><input id="cell-21" type="text" maxlength="1" oninput="checkInput(21)"></td>
-					<td><input id="cell-22" type="text" maxlength="1" oninput="checkInput(22)"></td>
-					<td><input id="cell-23" type="text" maxlength="1" oninput="checkInput(23)"></td>
-					<td><input id="cell-24" type="text" maxlength="1" oninput="checkInput(24)"></td>
-					<td><input id="cell-25" type="text" maxlength="1" oninput="checkInput(25)"></td>
-					<td><input id="cell-26" type="text" maxlength="1" oninput="checkInput(26)"></td>
+					<td>
+						<input
+							id="cell-18"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(18)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-19"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(19)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-20"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(20)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-21"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(21)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-22"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(22)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-23"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(23)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-24"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(24)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-25"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(25)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-26"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(26)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-27" type="text" maxlength="1" oninput="checkInput(27)"></td>
-					<td><input id="cell-28" type="text" maxlength="1" oninput="checkInput(28)"></td>
-					<td><input id="cell-29" type="text" maxlength="1" oninput="checkInput(29)"></td>
-					<td><input id="cell-30" type="text" maxlength="1" oninput="checkInput(30)"></td>
-					<td><input id="cell-31" type="text" maxlength="1" oninput="checkInput(31)"></td>
-					<td><input id="cell-32" type="text" maxlength="1" oninput="checkInput(32)"></td>
-					<td><input id="cell-33" type="text" maxlength="1" oninput="checkInput(33)"></td>
-					<td><input id="cell-34" type="text" maxlength="1" oninput="checkInput(34)"></td>
-					<td><input id="cell-35" type="text" maxlength="1" oninput="checkInput(35)"></td>
+					<td>
+						<input
+							id="cell-27"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(27)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-28"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(28)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-29"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(29)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-30"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(30)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-31"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(31)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-32"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(32)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-33"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(33)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-34"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(34)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-35"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(35)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-36" type="text" maxlength="1" oninput="checkInput(36)"></td>
-					<td><input id="cell-37" type="text" maxlength="1" oninput="checkInput(37)"></td>
-					<td><input id="cell-38" type="text" maxlength="1" oninput="checkInput(38)"></td>
-					<td><input id="cell-39" type="text" maxlength="1" oninput="checkInput(39)"></td>
-					<td><input id="cell-40" type="text" maxlength="1" oninput="checkInput(40)"></td>
-					<td><input id="cell-41" type="text" maxlength="1" oninput="checkInput(41)"></td>
-					<td><input id="cell-42" type="text" maxlength="1" oninput="checkInput(42)"></td>
-					<td><input id="cell-43" type="text" maxlength="1" oninput="checkInput(43)"></td>
-					<td><input id="cell-44" type="text" maxlength="1" oninput="checkInput(44)"></td>
+					<td>
+						<input
+							id="cell-36"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(36)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-37"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(37)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-38"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(38)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-39"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(39)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-40"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(40)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-41"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(41)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-42"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(42)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-43"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(43)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-44"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(44)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-45" type="text" maxlength="1" oninput="checkInput(45)"></td>
-					<td><input id="cell-46" type="text" maxlength="1" oninput="checkInput(46)"></td>
-					<td><input id="cell-47" type="text" maxlength="1" oninput="checkInput(47)"></td>
-					<td><input id="cell-48" type="text" maxlength="1" oninput="checkInput(48)"></td>
-					<td><input id="cell-49" type="text" maxlength="1" oninput="checkInput(49)"></td>
-					<td><input id="cell-50" type="text" maxlength="1" oninput="checkInput(50)"></td>
-					<td><input id="cell-51" type="text" maxlength="1" oninput="checkInput(51)"></td>
-					<td><input id="cell-52" type="text" maxlength="1" oninput="checkInput(52)"></td>
-					<td><input id="cell-53" type="text" maxlength="1" oninput="checkInput(53)"></td>
+					<td>
+						<input
+							id="cell-45"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(45)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-46"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(46)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-47"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(47)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-48"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(48)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-49"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(49)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-50"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(50)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-51"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(51)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-52"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(52)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-53"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(53)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-54" type="text" maxlength="1" oninput="checkInput(54)"></td>
-					<td><input id="cell-55" type="text" maxlength="1" oninput="checkInput(55)"></td>
-					<td><input id="cell-56" type="text" maxlength="1" oninput="checkInput(56)"></td>
-					<td><input id="cell-57" type="text" maxlength="1" oninput="checkInput(57)"></td>
-					<td><input id="cell-58" type="text" maxlength="1" oninput="checkInput(58)"></td>
-					<td><input id="cell-59" type="text" maxlength="1" oninput="checkInput(59)"></td>
-					<td><input id="cell-60" type="text" maxlength="1" oninput="checkInput(60)"></td>
-					<td><input id="cell-61" type="text" maxlength="1" oninput="checkInput(61)"></td>
-					<td><input id="cell-62" type="text" maxlength="1" oninput="checkInput(62)"></td>
+					<td>
+						<input
+							id="cell-54"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(54)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-55"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(55)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-56"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(56)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-57"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(57)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-58"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(58)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-59"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(59)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-60"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(60)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-61"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(61)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-62"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(62)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-63" type="text" maxlength="1" oninput="checkInput(63)"></td>
-					<td><input id="cell-64" type="text" maxlength="1" oninput="checkInput(64)"></td>
-					<td><input id="cell-65" type="text" maxlength="1" oninput="checkInput(65)"></td>
-					<td><input id="cell-66" type="text" maxlength="1" oninput="checkInput(66)"></td>
-					<td><input id="cell-67" type="text" maxlength="1" oninput="checkInput(67)"></td>
-					<td><input id="cell-68" type="text" maxlength="1" oninput="checkInput(68)"></td>
-					<td><input id="cell-69" type="text" maxlength="1" oninput="checkInput(69)"></td>
-					<td><input id="cell-70" type="text" maxlength="1" oninput="checkInput(70)"></td>
-					<td><input id="cell-71" type="text" maxlength="1" oninput="checkInput(71)"></td>
+					<td>
+						<input
+							id="cell-63"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(63)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-64"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(64)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-65"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(65)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-66"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(66)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-67"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(67)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-68"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(68)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-69"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(69)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-70"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(70)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-71"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(71)"
+						/>
+					</td>
 				</tr>
 
 				<tr>
-					<td><input id="cell-72" type="text" maxlength="1" oninput="checkInput(72)"></td>
-					<td><input id="cell-73" type="text" maxlength="1" oninput="checkInput(73)"></td>
-					<td><input id="cell-74" type="text" maxlength="1" oninput="checkInput(74)"></td>
-					<td><input id="cell-75" type="text" maxlength="1" oninput="checkInput(75)"></td>
-					<td><input id="cell-76" type="text" maxlength="1" oninput="checkInput(76)"></td>
-					<td><input id="cell-77" type="text" maxlength="1" oninput="checkInput(77)"></td>
-					<td><input id="cell-78" type="text" maxlength="1" oninput="checkInput(78)"></td>
-					<td><input id="cell-79" type="text" maxlength="1" oninput="checkInput(79)"></td>
-					<td><input id="cell-80" type="text" maxlength="1" oninput="checkInput(80)"></td>
+					<td>
+						<input
+							id="cell-72"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(72)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-73"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(73)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-74"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(74)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-75"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(75)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-76"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(76)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-77"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(77)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-78"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(78)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-79"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(79)"
+						/>
+					</td>
+					<td>
+						<input
+							id="cell-80"
+							type="text"
+							maxlength="1"
+							oninput="checkInput(80)"
+						/>
+					</td>
 				</tr>
 			</table>
-			<br>
+
+			<br />
 			<fieldset class="form-group text-center">
 				<div class="form-check">
 					<button class="btn btn-secondary" id="newBoard">New</button>
-					<button class="btn btn-secondary" id="checkBoard">Check</button>
-					<button class="btn btn-secondary" id="solveBoard">Solve</button>
+					<button class="btn btn-secondary" id="checkBoard">
+						Check
+					</button>
+					<button class="btn btn-secondary" id="solveBoard">
+						Solve
+					</button>
 					<button class="btn btn-secondary" id="getHint">Hint</button>
-					<button class="btn btn-secondary" id="clearBoard">Clear</button>
-					<label for="help"><input type="checkbox" id="help" /> <span class="pl-1">Help?</span></label>
+					<button class="btn btn-secondary" id="clearBoard">
+						Clear
+					</button>
+					<label for="help" id="help-group"
+						><input type="checkbox" id="help" />
+						<span class="pl-1">Help?</span></label
+					>
 				</div>
 			</fieldset>
 		</div>
