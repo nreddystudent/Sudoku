@@ -145,19 +145,3 @@ $("#solveBoard").click(function(){
 		$("#getHint, #checkBoard, #solveBoard, #clearBoard, #help").prop('disabled', true);
 	}
 });
-
-// let board = formatBoard(temp);
-
-// function formatBoard(board) {
-// 	let data = board.map(v => v.join(' '))
-// 	row1 = '-------------------------\n| ' + data[0].slice(0, 6) + '| ' + data[0].slice(6, 12) + '| ' + data[0].slice(12) + ' |\n| ';
-// 	row2 = data[1].slice(0, 6) + '| ' + data[1].slice(6, 12) + '| ' + data[1].slice(12) + ' |\n| ';
-// 	row3 = data[2].slice(0, 6) + '| ' + data[2].slice(6, 12) + '| ' + data[2].slice(12) + ' |\n';
-// 	row4 = '-------------------------\n| ' + data[3].slice(0, 6) + '| ' + data[3].slice(6, 12) + '| ' + data[3].slice(12) + ' |\n| ';
-// 	row5 = data[4].slice(0, 6) + '| ' + data[4].slice(6, 12) + '| ' + data[4].slice(12) + ' |\n| ';
-// 	row6 = data[5].slice(0, 6) + '| ' + data[5].slice(6, 12) + '| ' + data[5].slice(12) + ' |\n';
-// 	row7 = '-------------------------\n| ' + data[6].slice(0, 6) + '| ' + data[6].slice(6, 12) + '| ' + data[6].slice(12) + ' |\n| ';
-// 	row8 = data[7].slice(0, 6) + '| ' + data[7].slice(6, 12) + '| ' + data[7].slice(12) + ' |\n| ';
-// 	row9 = data[8].slice(0, 6) + '| ' + data[8].slice(6, 12) + '| ' + data[8].slice(12) + ' |\n-------------------------';
-// 	return row1  + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9;
-// }
