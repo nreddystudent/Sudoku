@@ -1,7 +1,20 @@
+var { Timer } = require('easytimer.js');
+
 var startBoard;
 var helpBoard;
 var help;
 let hint;
+var timer = new Timer();
+
+timer.addEventListener('secondsUpdated', function (e) {
+	$('.values').html(timer.getTimeValues().toString());
+});
+timer.addEventListener('started', function (e) {
+	$('.values').html(timer.getTimeValues().toString());
+});
+timer.addEventListener('reset', function (e) {
+	$('.values').html(timer.getTimeValues().toString());
+});
 
 function getUserBoard() {
 	let retBoard = [];
@@ -91,6 +104,7 @@ $("#newBoard").click(function(){
 				for (let i = 0; i < 9; i++)
 					for (let j = 0; j < 9; j++)
 						if (startBoard[i][j] != 0) $("#cell-" + ((i * 9) + j)).prop('disabled', true).val(startBoard[i][j]);
+				timer.reset();
 			}
 		}
 	);
@@ -143,5 +157,6 @@ $("#solveBoard").click(function(){
 			for (let j = 0; j < 9; j++)
 				$("#cell-" + ((i * 9) + j)).prop('disabled', true).val(helpBoard[i][j]);
 		$("#getHint, #checkBoard, #solveBoard, #clearBoard, #help").prop('disabled', true);
+		timer.stop();
 	}
 });
